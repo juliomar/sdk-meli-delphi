@@ -7,8 +7,6 @@ uses
   System.TypInfo;
 
 type
-  THttpMethod = (GET, POST, PUT, DELETE);
-
   TBasePath = (MELI);
 
   TEndPointType = (USER_TEST, AUTHORIZATION, OAUTH_TOKEN, USERS, ME, ADDRESSES,

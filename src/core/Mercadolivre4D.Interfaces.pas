@@ -12,7 +12,14 @@ type
     function Code : String; overload;
     function RedirectUri(Value : String) : iConfiguration; overload;
     function RedirectUri : String; overload;
+    function APP_ID(Value : String) : iConfiguration; overload;
+    function APP_ID : String; overload;
     function GrantType : String;
+    function Autenticacao(var AuthMeli : String) : iConfiguration;
+  end;
+
+  iRecursos = interface
+
   end;
 
 implementation

@@ -3,6 +3,7 @@ unit Mercadolivre4D.Configuration;
 interface
 
 uses
+  System.SysUtils,
   Mercadolivre4D.Interfaces;
 
 type
@@ -12,6 +13,7 @@ type
     FClientSecret : String;
     FCode : String;
     FRedirectUri : String;
+    FAPP_ID : String;
   public
     constructor Create;
     destructor Destroy; override;
@@ -24,7 +26,10 @@ type
     function Code: String; overload;
     function RedirectUri(Value: String): iConfiguration; overload;
     function RedirectUri: String; overload;
+    function APP_ID(Value : String) : iConfiguration; overload;
+    function APP_ID : String; overload;
     function GrantType : String;
+    function Autenticacao(var AuthMeli : String) : iConfiguration;
   end;
 
 implementation
@@ -33,6 +38,24 @@ function TConfiguration.ClientId(Value: String): iConfiguration;
 begin
   Result := Self;
   FClientId := Value;
+end;
+
+function TConfiguration.APP_ID: String;
+begin
+  Result := FAPP_ID;
+end;
+
+function TConfiguration.Autenticacao(var AuthMeli: String): iConfiguration;
+begin
+  Result := Self;
+  AuthMeli := Format('https://auth.mercadolivre.com.br/authorization?response_type=code&client_id=%S&redirect_uri=%S',
+    [FAPP_ID,FRedirectUri]);
+end;
+
+function TConfiguration.APP_ID(Value: String): iConfiguration;
+begin
+  Result := Self;
+  FAPP_ID := Value;
 end;
 
 function TConfiguration.ClientId: String;
