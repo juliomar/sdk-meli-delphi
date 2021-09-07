@@ -1,19 +1,3 @@
-![No longer maintained](https://img.shields.io/badge/Maintenance-OFF-red.svg)
-
-### [DEPRECATED] This repository is no longer maintained
-
-> From the first week of April 2021 we will stop maintaining our SDKs.
->
-> This project is not functional, the dependencies will not be updated to latest ones.
->
-> We recommend you read our [documentation](https://developers.mercadolibre.com).
-
-  <a href="https://developers.mercadolibre.com">
-    <img src="https://user-images.githubusercontent.com/1153516/73021269-043c2d80-3e06-11ea-8d0e-6e91441c2900.png" alt="Mercado Libre Developers" width="200"></a>
-  </a>
-
----
-
 <br>
 <h1 align="center">
   <a href="https://developers.mercadolibre.com">
