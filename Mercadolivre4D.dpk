@@ -50,6 +50,7 @@ contains
   Mercadolivre4D.Configuration in 'src\core\Mercadolivre4D.Configuration.pas',
   Mercadolivre4D.OAuth.Interfaces in 'src\core\auth\Mercadolivre4D.OAuth.Interfaces.pas',
   Mercadolivre4D.Types in 'src\core\resources\Mercadolivre4D.Types.pas',
-  Mercadolivre4D.Interfaces in 'src\core\Mercadolivre4D.Interfaces.pas';
+  Mercadolivre4D.Interfaces in 'src\core\Mercadolivre4D.Interfaces.pas',
+  Mercadolivre4D.OAuth.RestClient in 'src\core\auth\Mercadolivre4D.OAuth.RestClient.pas';
 
 end.
