@@ -1,0 +1,55 @@
+package Mercadolivre4D;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  dbrtl;
+
+contains
+  MercadoLivre4D.Model.Attributes in 'src\model\MercadoLivre4D.Model.Attributes.pas',
+  MercadoLivre4D.Model.AttributesValueStruct in 'src\model\MercadoLivre4D.Model.AttributesValueStruct.pas',
+  MercadoLivre4D.Model.AttributesValues in 'src\model\MercadoLivre4D.Model.AttributesValues.pas',
+  MercadoLivre4D.Model.InlineObject in 'src\model\MercadoLivre4D.Model.InlineObject.pas',
+  MercadoLivre4D.Model.Item in 'src\model\MercadoLivre4D.Model.Item.pas',
+  MercadoLivre4D.Model.ItemPictures in 'src\model\MercadoLivre4D.Model.ItemPictures.pas',
+  MercadoLivre4D.Model.Variations in 'src\model\MercadoLivre4D.Model.Variations.pas',
+  MercadoLivre4D.Model.VariationsAttributeCombinations in 'src\model\MercadoLivre4D.Model.VariationsAttributeCombinations.pas',
+  MercadoLivre4D.Model.OAuth2 in 'src\model\MercadoLivre4D.Model.OAuth2.pas',
+  MercadoLivre4D.Model.SaleTerms in 'src\model\MercadoLivre4D.Model.SaleTerms.pas',
+  Mercadolivre4D in 'src\Mercadolivre4D.pas',
+  Mercadolivre4D.DTO.Interfaces in 'src\dto\Mercadolivre4D.DTO.Interfaces.pas',
+  Mercadolivre4D.DTO.AttributesDTO in 'src\dto\Mercadolivre4D.DTO.AttributesDTO.pas',
+  Mercadolivre4D.DTO.AttributesValuesDTO in 'src\dto\Mercadolivre4D.DTO.AttributesValuesDTO.pas',
+  Mercadolivre4D.Maps in 'src\utils\Mercadolivre4D.Maps.pas',
+  Mercadolivre4D.Configuration in 'src\core\Mercadolivre4D.Configuration.pas',
+  Mercadolivre4D.OAuth.Interfaces in 'src\core\auth\Mercadolivre4D.OAuth.Interfaces.pas',
+  Mercadolivre4D.Types in 'src\core\resources\Mercadolivre4D.Types.pas',
+  Mercadolivre4D.Interfaces in 'src\core\Mercadolivre4D.Interfaces.pas';
+
+end.
