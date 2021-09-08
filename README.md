@@ -73,12 +73,25 @@ Once the user is redirected to the callback url, you will receive a parameter na
 
 ## Documentation & Important notes
 
-##### The URIs are relative to https://api.mercadolibre.com
+##### The URIs are relative to https://api.mercadolivre.com
 
-##### The Authorization URLs (set the correct country domain): https://auth.mercadolibre.{country_domain}
+##### The Authorization URLs (set the correct country domain):// 1:  1. "https://auth.mercadolibre.com.ar"
+2. "https://auth.mercadolivre.com.br"
+3. "https://auth.mercadolibre.com.co"
+4. "https://auth.mercadolibre.com.mx"
+5. "https://auth.mercadolibre.com.uy"
+6. "https://auth.mercadolibre.cl"
+7. "https://auth.mercadolibre.com.cr"
+8. "https://auth.mercadolibre.com.ec"
+9. "https://auth.mercadolibre.com.ve"
+10. "https://auth.mercadolibre.com.pa"
+11. "https://auth.mercadolibre.com.pe"
+12. "https://auth.mercadolibre.com.do"
+13. "https://auth.mercadolibre.com.bo"
+14. "https://auth.mercadolibre.com.py" 
 
 ##### All docs for the library are located [here](https://github.com/alepmedeiros/Mercadolivre4D/tree/master/docs)
 
 ##### Check out our examples codes in the folder [examples](https://github.com/alepmedeiros/Mercadolivre4D/tree/master/examples)
 
-##### Don’t forget to check out our [developer site](https://developers.mercadolibre.com/)
+##### Don’t forget to check out our [developer site](https://developers.mercadolivre.com/)
