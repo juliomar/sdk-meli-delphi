@@ -75,7 +75,8 @@ Once the user is redirected to the callback url, you will receive a parameter na
 
 ##### The URIs are relative to https://api.mercadolivre.com
 
-##### The Authorization URLs (set the correct country domain):// 1:  1. "https://auth.mercadolibre.com.ar"
+##### The Authorization URLs (set the correct country domain):  
+1. "https://auth.mercadolibre.com.ar"
 2. "https://auth.mercadolivre.com.br"
 3. "https://auth.mercadolibre.com.co"
 4. "https://auth.mercadolibre.com.mx"
