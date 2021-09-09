@@ -15,19 +15,18 @@ type
     FpictureIds: TList<String>;
     FAvailableQuantity: Integer;
     FAttributeCombinations: TObjectList<TVariationsAttributeCombinations>;
-    procedure SetAttributeCombinations(
-      const Value: TObjectList<TVariationsAttributeCombinations>);
     procedure SetAvailableQuantity(const Value: Integer);
     procedure SetpictureIds(const Value: TList<String>);
     procedure SetPrice(const Value: Integer);
     procedure SetSoldQuantity(const Value: Integer);
+    function GetAttributeCombinations: TObjectList<TVariationsAttributeCombinations>;
   public
     [Serialized('price')]
     property Price : Integer read FPrice write SetPrice;
     [Serialized('attribute_combinations')]
     [Default('null')]
     [OneToMany]
-    property AttributeCombinations : TObjectList<TVariationsAttributeCombinations> read FAttributeCombinations write SetAttributeCombinations;
+    property AttributeCombinations : TObjectList<TVariationsAttributeCombinations> read GetAttributeCombinations;
     [Serialized('available_quantity')]
     property AvailableQuantity : Integer read FAvailableQuantity write SetAvailableQuantity;
     [Serialized('sold_quantity')]
@@ -42,10 +41,12 @@ implementation
 
 { TVariations }
 
-procedure TVariations.SetAttributeCombinations(
-  const Value: TObjectList<TVariationsAttributeCombinations>);
+function TVariations.GetAttributeCombinations: TObjectList<TVariationsAttributeCombinations>;
 begin
-  FAttributeCombinations := Value;
+  if not Assigned(FAttributeCombinations) then
+    FAttributeCombinations := TObjectList<TVariationsAttributeCombinations>.Create;
+
+  Result := FAttributeCombinations;
 end;
 
 procedure TVariations.SetAvailableQuantity(const Value: Integer);

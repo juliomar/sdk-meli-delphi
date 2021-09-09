@@ -133,6 +133,9 @@
         <DCCReference Include="src\core\resources\Mercadolivre4D.Types.pas"/>
         <DCCReference Include="src\core\Mercadolivre4D.Interfaces.pas"/>
         <DCCReference Include="src\core\auth\Mercadolivre4D.OAuth.RestClient.pas"/>
+        <DCCReference Include="src\core\resources\Mercadolivre4D.Resources.Interfaces.pas"/>
+        <DCCReference Include="src\core\resources\Mercadolivre4D.Resources.Filters.pas"/>
+        <DCCReference Include="src\core\auth\Mercadolivre4D.OAuth.MeliApi.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

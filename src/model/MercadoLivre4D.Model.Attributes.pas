@@ -24,9 +24,9 @@ type
     procedure SetName(const Value: String);
     procedure SetValueId(const Value: String);
     procedure SetValueName(const Value: String);
-    procedure SetValues(const Value: TObjectList<TAttributesValues>);
     procedure SetValueStruct(const Value: TAttributeValueStruct);
     procedure SetId(const Value: String);
+    function GetValues: TObjectList<TAttributesValues>;
   public
     [Serialized('id')]
     property Id: String read FId write SetId;
@@ -43,8 +43,7 @@ type
     [Serialized('values')]
     [Default ('null')]
     [OneToMany]
-    property Values: TObjectList<TAttributesValues> read FValues
-      write SetValues;
+    property Values: TObjectList<TAttributesValues> read GetValues;
     [Serialized('attribute_group_name')]
     property AttributeGroupName: String read FAttributeGroupName
       write SetAttributeGroupName;
@@ -56,6 +55,14 @@ type
 implementation
 
 { TAttributes }
+
+function TAttributes.GetValues: TObjectList<TAttributesValues>;
+begin
+  if not Assigned(FValues) then
+    FValues := TObjectList<TAttributesValues>.Create;
+
+  Result := FValues;
+end;
 
 procedure TAttributes.SetAttributeGroupID(const Value: String);
 begin
@@ -85,11 +92,6 @@ end;
 procedure TAttributes.SetValueName(const Value: String);
 begin
   FValueName := Value;
-end;
-
-procedure TAttributes.SetValues(const Value: TObjectList<TAttributesValues>);
-begin
-  FValues := Value;
 end;
 
 procedure TAttributes.SetValueStruct(const Value: TAttributeValueStruct);

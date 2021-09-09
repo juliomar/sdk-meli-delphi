@@ -5,17 +5,25 @@ interface
 uses
   Mercadolivre4D.OAuth.Interfaces,
   Mercadolivre4D.Interfaces,
-  Data.DB;
+  RestRequest4D,
+  Data.DB, Mercadolivre4D.Types;
 
 type
   TRestClient = class(TInterfacedObject, ihttpClient)
   private
-    [weak]
-    FParent: iConfiguration;
+    FReq : IRequest;
+    FResp : IResponse;
+    FContent : String;
+    FBaseUrl : TBasePath;
+
+    const
+        CONTENT_TYPE = 'Content-Type';
+        APPLICATION_JSON = 'application/json';
   public
-    constructor Create(Parent: iConfiguration);
+    constructor Create;
     destructor Destroy; override;
-    class function New(Parent: iConfiguration): ihttpClient;
+    class function New: ihttpClient;
+    function Token(Value : String) : iHttpClient;
     function Get(Url: String): ihttpClient;
     function GetAll(Url: String): ihttpClient;
     function Post(Url: String): ihttpClient;
@@ -32,26 +40,34 @@ implementation
 function TRestClient.Body(Value: String): ihttpClient;
 begin
   Result := Self;
+  FReq.AddBody(Value);
 end;
 
 function TRestClient.Content(var Value: String): ihttpClient;
 begin
   Result := Self;
+  Value := FContent;
 end;
 
-constructor TRestClient.Create(Parent: iConfiguration);
+constructor TRestClient.Create;
 begin
-  FParent := Parent;
+  FReq.BaseURL(FBaseUrl.GetValue);
 end;
 
 function TRestClient.DataSet(Value: TDataSet): ihttpClient;
 begin
   Result := Self;
+  FReq.DataSetAdapter(Value);
 end;
 
 function TRestClient.Delete(Url: String): ihttpClient;
 begin
   Result := Self;
+
+  FContent :=
+    FReq
+      .Resource(url)
+      .Delete.Content;
 end;
 
 destructor TRestClient.Destroy;
@@ -63,31 +79,60 @@ end;
 function TRestClient.Get(Url: String): ihttpClient;
 begin
   Result := Self;
+
+  FContent :=
+    FReq
+      .Resource(url)
+      .Get.Content;
 end;
 
 function TRestClient.GetAll(Url: String): ihttpClient;
 begin
   Result := Self;
+
+  FContent :=
+    FReq
+      .Resource(url)
+      .Get.Content;
 end;
 
-class function TRestClient.New(Parent: iConfiguration): ihttpClient;
+class function TRestClient.New: ihttpClient;
 begin
-  Result := Self.Create(Parent);
+  Result := Self.Create;
 end;
 
 function TRestClient.Params(aKey, aValue: String): ihttpClient;
 begin
   Result := Self;
+  FReq.AddUrlSegment(aKey, aValue);
 end;
 
 function TRestClient.Post(Url: String): ihttpClient;
 begin
   Result := Self;
+
+  FContent :=
+    FReq
+      .Resource(url)
+      .AddHeader(CONTENT_TYPE,APPLICATION_JSON)
+      .Post.Content;
 end;
 
 function TRestClient.Put(Url: String): ihttpClient;
 begin
   Result := Self;
+
+  FContent :=
+    FReq
+      .Resource(url)
+      .AddHeader(CONTENT_TYPE,APPLICATION_JSON)
+      .Post.Content;
+end;
+
+function TRestClient.Token(Value: String): iHttpClient;
+begin
+  Result := Self;
+  FReq.Token('Bearer ' + Value);
 end;
 
 end.
