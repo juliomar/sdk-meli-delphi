@@ -4,7 +4,7 @@
     <img src="https://user-images.githubusercontent.com/1153516/29861072-689ec57e-8d3e-11e7-8368-dd923543258f.jpg" alt="Mercado Libre Developers" width="230"></a>
   </a>
   <br><br>
-  MercadoLivre4D
+  SDK for delphi for integration with Mercado Livre
   <br>
 </h1>
 
